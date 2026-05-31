@@ -1,0 +1,53 @@
+{
+  "store_id": "STORE_PURPLLE_001",
+  "store_name": "Purplle Beauty Store",
+  "open_hours": {"open": "10:00", "close": "22:00"},
+  "cameras": {
+    "CAM_1": {
+      "role": "MAIN_FLOOR_SKINCARE",
+      "description": "Skincare zone - FarmStay, Face Shop, Minimalist, Derma Co brands",
+      "zones": ["SKINCARE", "BILLING_AREA"],
+      "entry_exit": false
+    },
+    "CAM_2": {
+      "role": "MAIN_FLOOR_MAKEUP",
+      "description": "Makeup/cosmetics zone - Lakmé, Maybelline, Swiss Beauty, L'Oreal",
+      "zones": ["MAKEUP", "ACCESSORIES", "MAIN_FLOOR"],
+      "entry_exit": false
+    },
+    "CAM_3": {
+      "role": "ENTRY_EXIT",
+      "description": "Store entry/exit threshold - glass door with Purplle signage",
+      "zones": ["ENTRY_ZONE"],
+      "entry_exit": true,
+      "entry_line_y_ratio": 0.6
+    },
+    "CAM_4": {
+      "role": "STOCKROOM",
+      "description": "Back-of-house stockroom - staff only area with Purplle boxes",
+      "zones": ["STOCKROOM"],
+      "staff_only": true
+    },
+    "CAM_5": {
+      "role": "BILLING_COUNTER",
+      "description": "Billing/POS counter with laptop terminal",
+      "zones": ["BILLING_QUEUE", "BILLING_COUNTER"],
+      "entry_exit": false
+    }
+  },
+  "zones": {
+    "ENTRY_ZONE": {"camera": "CAM_3", "type": "threshold"},
+    "MAIN_FLOOR": {"camera": "CAM_2", "type": "browse"},
+    "SKINCARE": {"camera": "CAM_1", "type": "browse", "sku_zone": "SKINCARE"},
+    "MAKEUP": {"camera": "CAM_2", "type": "browse", "sku_zone": "MAKEUP"},
+    "ACCESSORIES": {"camera": "CAM_2", "type": "browse", "sku_zone": "ACCESSORIES"},
+    "BILLING_COUNTER": {"camera": "CAM_5", "type": "billing"},
+    "BILLING_QUEUE": {"camera": "CAM_5", "type": "queue"},
+    "STOCKROOM": {"camera": "CAM_4", "type": "staff_only"}
+  },
+  "staff_indicators": {
+    "uniform_colors": ["black", "dark_navy"],
+    "known_staff_zones": ["STOCKROOM", "BILLING_COUNTER"],
+    "notes": "Staff wear all-black uniforms (black top + black pants). Customers often have bags/backpacks."
+  }
+}
